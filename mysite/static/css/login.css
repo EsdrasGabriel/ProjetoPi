@@ -1,0 +1,49 @@
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    margin: auto;
+    background-color: #FFFFf9;
+}
+
+/* NavBar */
+nav {
+    display: flex;
+    height: 77px;
+    background-color: #ffbf00;
+    width: 100vw;
+    padding: 0px 100px 0px 100px;
+    position: fixed;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav li {
+    list-style-type: none;  
+}
+
+nav .container-nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.container-logo {
+    display: flex;
+    align-items: center;
+}
+
+.container-logo a {
+    font-size: 35px;
+    font-family: sans-serif;
+    color: black;
+}
+
+.container-particao li {
+    font-size: 20px;
+    font-family: sans-serif;
+    color: black;
+}
+
