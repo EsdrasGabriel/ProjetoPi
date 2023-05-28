@@ -28,5 +28,31 @@
         </div>
     </nav>
 
+    <div class="container-login">
+        <form action="" class="formulario"> {% csrf_token %}
+            <div class="login">
+                <input type="email" class="campo" name="email" placeholder="Digite seu e-mail" required>
+                <input type="password" class="campo" name="passowrd" placeholder="Digite sua senha" required>
+                <input type="submit" class="submit">
+            </div>
+
+            <div class="cadastrar-se">
+                <p class="completo">Ainda não possui conta? <a href="cadastro/">Clique aqui!</a></p>
+            </div>
+
+            <div class="divisor">
+                <hr> 
+                <h1 class="divisor-desc">ou</h1> 
+                <hr>
+            </div>
+            
+            <div class="login-outros">
+                <button>Entrar com Google</button>
+                <button>Entrar com Facebook</button>
+            </div>
+        </form>
+    </div>
+
+
 </body>
 </html>
