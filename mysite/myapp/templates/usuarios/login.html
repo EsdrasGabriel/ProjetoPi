@@ -1,13 +1,13 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
 
     <title>Login</title>
 
@@ -29,7 +29,9 @@
     </nav>
 
     <div class="container-login">
-        <form action="" class="formulario"> {% csrf_token %}
+        <form action="" class="formulario"> 
+
+            {% csrf_token %}
             <div class="login">
                 <input type="email" class="campo" name="email" placeholder="Digite seu e-mail" required>
                 <input type="password" class="campo" name="passowrd" placeholder="Digite sua senha" required>
@@ -37,7 +39,7 @@
             </div>
 
             <div class="cadastrar-se">
-                <p class="completo">Ainda não possui conta? <a href="cadastro/">Clique aqui!</a></p>
+                <p class="completo">Ainda não possui conta? <a href="{% url 'cadastro' %}">Clique aqui!</a></p>
             </div>
 
             <div class="divisor">
@@ -47,9 +49,10 @@
             </div>
             
             <div class="login-outros">
-                <button>Entrar com Google</button>
-                <button>Entrar com Facebook</button>
+                <button type="button">Entrar com Google</button>
+                <button type="button">Entrar com Facebook</button>
             </div>
+
         </form>
     </div>
 

@@ -12,6 +12,7 @@ body {
     background-color: var(--background-color);
 }
 
+
 /* NavBar */
 nav {
     display: flex;
@@ -61,7 +62,7 @@ nav .container-nav {
 .container-logo a {
     font-size: 35px;
     font-family: sans-serif;
-    color: black;
+    color: var(--color-black);
     font-weight: 1000;
 }
 
@@ -72,7 +73,7 @@ nav .container-nav {
 }
 
 .container-particao .conteudo a {
-    color: black;
+    color: var(--color-black);
 }
 
 
@@ -148,6 +149,7 @@ nav .container-nav {
     font-size: 16px;
     font-family: sans-serif;
     font-weight: bold;
+    color: var(--color-black);
 }
 
 .submit:hover {
@@ -207,6 +209,7 @@ hr {
     font-size: 16px;
     font-family: sans-serif;
     font-weight: bold;
+    color: var(--color-black);
 }
 
 button:hover {
