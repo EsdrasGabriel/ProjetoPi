@@ -21,8 +21,7 @@
             </div>
             <div class="container-particao">
                 <ul class="particoes">
-                    <li class="conteudo"><a href="">Empresas</a></li>
-                    <li class="conteudo"><a href="">Entrar</a></li>
+                    <li class="conteudo"><a href="">Anúncios</a></li>
                 </ul>
             </div>
         </div>
@@ -34,7 +33,7 @@
             {% csrf_token %}
             <div class="login">
                 <input type="email" class="campo" name="email" placeholder="Digite seu e-mail" required>
-                <input type="password" class="campo" name="passowrd" placeholder="Digite sua senha" required>
+                <input type="password" class="campo" name="passowrd" pattern=".{8,}" placeholder="Digite sua senha" required>
                 <input type="submit" class="submit">
             </div>
 

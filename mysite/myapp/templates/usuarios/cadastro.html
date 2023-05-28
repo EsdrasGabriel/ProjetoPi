@@ -21,13 +21,29 @@
             </div>
             <div class="container-particao">
                 <ul class="particoes">
-                    <li class="conteudo"><a href="">Empresas</a></li>
-                    <li class="conteudo"><a href="">Entrar</a></li>
+                    <li class="conteudo"><a href="{% url 'login' %}">Entrar</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
+
+    <div class="container-cadastro">
+        <h1 class="description">Cadastro</h1>
+        <form action="" class="formulario">
+
+            {% csrf_token %}
+            <div class="cadastrar-se">
+                <input type="name" class="campo" placeholder="Digite seu nome" required>
+                <input type="email" class="campo" placeholder="Digite seu email" required>
+                <input type="password" class="campo" placeholder="Digite sua senha: no minimo 8 digitos" pattern=".{8,}" required>
+                <input type="text" class="campo" placeholder="Digite seu CPF: xxx.xxx.xxx-xx" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                <input type="text" class="campo" placeholder="Digite seu endereço" required>  
+                <input type="submit" class="submit">
+            </div>
+
+        </form>
+    </div>
 
 </body>
 </html>
