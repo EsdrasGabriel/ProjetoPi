@@ -30,16 +30,16 @@
 
     <div class="container-cadastro">
         <h1 class="description">Cadastro</h1>
-        <form action="" class="formulario">
+        <form action="{% url 'cadastro' %}" method="POST" class="formulario">
 
             {% csrf_token %}
             <div class="cadastrar-se">
-                <input type="name" class="campo" placeholder="Digite seu nome" required>
-                <input type="email" class="campo" placeholder="Digite seu email" required>
-                <input type="password" class="campo" placeholder="Digite sua senha: no minimo 8 digitos" pattern=".{8,}" required>
-                <input type="text" class="campo" placeholder="Digite seu CPF: xxx.xxx.xxx-xx" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
-                <input type="text" class="campo" placeholder="Digite seu endereço" required>  
-                <input type="submit" class="submit">
+                <input type="name" class="campo" placeholder="Digite seu nome" name="nome" required>
+                <input type="email" class="campo" placeholder="Digite seu email" name="email" required>
+                <input type="password" class="campo" placeholder="Digite sua senha: no minimo 8 digitos" name="senha" pattern=".{8,}" required>
+                <input type="text" class="campo" placeholder="Digite seu CPF: xxx.xxx.xxx-xx" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                <input type="text" class="campo" placeholder="Digite seu endereço" name="endereco" required>  
+                <input type="submit" class="submit" value="Cadastrar">
             </div>
 
         </form>
