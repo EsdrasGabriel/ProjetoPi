@@ -28,12 +28,12 @@
     </nav>
 
     <div class="container-login">
-        <form action="" class="formulario"> 
+        <form action="{% url 'login' %}" method="POST" class="formulario"> 
 
             {% csrf_token %}
             <div class="login">
                 <input type="email" class="campo" name="email" placeholder="Digite seu e-mail" required>
-                <input type="password" class="campo" name="passowrd" pattern=".{8,}" placeholder="Digite sua senha" required>
+                <input type="password" class="campo" name="password" pattern=".{8,}" placeholder="Digite sua senha" required>
                 <input type="submit" class="submit" value="Entrar">
             </div>
 
