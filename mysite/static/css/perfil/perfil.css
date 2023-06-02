@@ -1,0 +1,143 @@
+:root {
+    --navbar-color: #ffbf00;
+    --background-color: #FFFFf9;
+    --color-black: #4F4F4F;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    margin: auto;
+    background-color: var(--background-color);
+}
+
+
+/* NavBar  */
+nav {
+    display: flex;
+    height: 77px;
+    background-color: var(--navbar-color);
+    width: 100vw;
+    padding: 0px 400px 0px 290px;
+    position: relative;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav li {
+    list-style-type: none;  
+}
+
+nav .container-nav {
+    position: relative;
+    width: 100%;
+    display: flex;
+}
+
+.container-logo {
+    display: flex;
+    align-items: center;
+}
+
+.container-particao {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.particoes {
+    display: flex;
+}
+
+.container-particao .particoes {
+    display: flex;
+    flex-direction: inline;
+    margin: auto;
+    padding: 0;
+}
+
+.container-logo a {
+    font-size: 35px;
+    font-family: sans-serif;
+    color: var(--color-black);
+    font-weight: 1000;
+}
+
+.container-particao li {
+    font-size: 24px;
+    font-family: sans-serif;
+    padding-left: 40px;
+}
+
+.container-particao .conteudo a {
+    color: var(--color-black);
+}
+
+/* Area do perfil */
+.container-perfil {
+    width: 100%;
+    height: 91.5%;
+    margin-top: 77px;
+    position: fixed;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: absolute;
+}
+
+.container-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container-opcoes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.imagem {
+    width: 85%;
+    height: 820px;
+}
+
+.legenda {
+    color: var(--navbar-color);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.container-opcoes .anuncio {
+    background-color: var(--navbar-color);
+    border: 2px solid var(--navbar-color);
+    border-radius: 10px;
+    width: 505px;
+    height: 50px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+.container-opcoes .deletar-conta {
+    background-color: var(--navbar-color);
+    border: 2px solid var(--navbar-color);
+    border-radius: 10px;
+    width: 505px;
+    height: 50px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: var(--color-black);
+}

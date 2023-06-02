@@ -21,14 +21,14 @@
             </div>
             <div class="container-particao">
                 <ul class="particoes">
-                    <li class="conteudo"><a href="">Anúncios</a></li>
+                    <li class="conteudo"><a href="{% url 'home' %}">Anúncios</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
     <div class="container-login">
-        <form action="{% url 'login' %}" method="POST" class="formulario"> 
+        <form action="{% url 'home' %}" method="POST" class="formulario"> 
 
             {% csrf_token %}
             <div class="login">

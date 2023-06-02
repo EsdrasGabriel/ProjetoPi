@@ -1,0 +1,23 @@
+<div class="container">
+
+    <fieldset>
+        <legend>
+            Criar Anúncio
+        </legend>
+
+        <form action="{% url 'perfil' %}" method="POST">
+
+            {% csrf_token %}
+            <label for="titulo">titulo</label>
+            <input type="name" id="titulo" name="titulo" required>
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" name="descricao" required>
+            <label for="requisitos">Requisitos</label>
+            <input type="text" id="requisitos" name="requisitos" required>
+            <input type="submit" class="submit" value="Criar" >
+
+        </form>
+
+    </fieldset>
+
+</div>

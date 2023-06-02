@@ -1,0 +1,29 @@
+<div class="container">
+
+    <fieldset>
+        <legend>
+            Editar Anúncio
+        </legend>
+
+        <form action="{% url 'EditarInformacoes' %}" method="POST">
+
+            {% csrf_token %}
+            <input type="number" id="id" name="id" value="{{ id }}" hidden>
+
+            <label for="titulo">titulo</label>
+            <input type="name" id="titulo" name="titulo" value="{{ titulo }}" required>
+
+            <label for="descricao">Descrição</label>
+            <input type="text" id="descricao" name="descricao" value="{{ descricao }}" required>
+
+            <label for="requisitos">Requisitos</label>
+            <input type="text" id="requisitos" name="requisitos" value="{{ requisitos }}" required>
+
+            <input type="submit" class="submit" value="Editar" >
+            
+
+        </form>
+
+    </fieldset>
+
+</div>
