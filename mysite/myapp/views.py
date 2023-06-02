@@ -89,6 +89,7 @@ def screenEditarInfo(request):
         return HttpResponse(render(request, 'usuarios/anuncios/editar/editarInformacoes.html', infoo))
     
     elif request.method == "POST":
+        
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
         requisitos = request.POST.get('requisitos')
@@ -110,5 +111,24 @@ def screenEditarInfo(request):
 def screenDeletar(request):
     return render(request, 'usuarios/anuncios/deletar/deletarAnuncio.html')
 
-# def screenExConta(request):
-#     return render(request, 'usuarios/anuncios/excluirConta/excluirConta.html')
+def screenConfirmacao(request):
+    if request.method == "GET":
+
+        id = request.GET.get('id')
+        info = anuncios_tbl.objects.get(id_anuncio=id)
+        infoo = {
+            'id': info.id_anuncio,
+        }
+        return HttpResponse(render(request, 'usuarios/anuncios/deletar/confirmacao.html', infoo))
+    
+    elif request.method == "POST":
+
+        id = int(request.POST.get('id'))
+        delete = anuncios_tbl.objects.get(id_anuncio=id)
+        delete.delete()
+
+        return HttpResponse(render(request, 'usuarios/perfil.html'))
+    
+
+def screenExConta(request):
+    return render(request, 'usuarios/anuncios/excluirConta/excluirConta.html')
