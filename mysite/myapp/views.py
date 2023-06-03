@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from .models import *
-import logging
+from .models import cadastro_usuario
+from .models import anuncios_tbl
 
 
 # Create your views here.
@@ -9,16 +9,21 @@ import logging
 def screenLogin(request):
     if request.method == "GET":
         return render(request, 'usuarios/login.html')
-    else:
+    elif request.method ==  "POST":
+
         email = request.POST.get('email')
         senha = request.POST.get('password')
 
-        auth = cadastro_usuario.objects.filter(email=email, senha=senha).all()
+        try:
+            auth = cadastro_usuario.objects.get(email=email)
+            if auth.senha == senha:
+                return redirect("http://127.0.0.1:8000/home/")
+            else:
+                return HttpResponse("Email ou Senha invalidos.")
+        except cadastro_usuario.DoesNotExist:
+            return HttpResponse("Email ou Senha invalidos")
 
-        if auth:
-            return HttpResponse(render(request, 'usuarios/home.html'))
-        else: 
-            return HttpResponse('email ou senha inválidos')
+
 
 
 def screenCadastro(request):
@@ -43,7 +48,7 @@ def screenCadastro(request):
         usuario = cadastro_usuario(nome=nome, email=email, senha=senha, cpf=cpf, endereco=endereco)
         usuario.save()
 
-        return HttpResponse(render(request, 'usuarios/login.html'))
+        return redirect("http://127.0.0.1:8000/login/")
     
 
 def screenHome(request):
@@ -51,7 +56,7 @@ def screenHome(request):
             'anuncios': anuncios_tbl.objects.all()
         }
       
-      return HttpResponse(render(request, 'usuarios/home.html', anuncios))
+      return render(request, 'usuarios/home/home.html', anuncios)
 
 
 def screenPerfil(request):
@@ -61,14 +66,16 @@ def screenPerfil(request):
 def screenCriar(request):
     if request.method == "GET":
         return render(request, 'usuarios/anuncios/criar/criarAnuncio.html')
-    else:
+    
+    elif request.method == "POST":
+
         titulo = request.POST.get('titulo')
         descricao = request.POST.get('descricao')
         requisitos = request.POST.get('requisitos')
         anuncio_tbl = anuncios_tbl(titulo=titulo, descricao=descricao, requisitos=requisitos)
         anuncio_tbl.save()
 
-        return HttpResponse(render(request, 'usuarios/home.html',))
+        return redirect("http://127.0.0.1:8000/perfil/")
 
 
 def screenEditar(request):
@@ -87,6 +94,7 @@ def screenEditarInfo(request):
             'requisitos': info.requisitos,
         }
         return HttpResponse(render(request, 'usuarios/anuncios/editar/editarInformacoes.html', infoo))
+
     
     elif request.method == "POST":
         
@@ -102,10 +110,10 @@ def screenEditarInfo(request):
         infooo.requisitos = requisitos
         infooo.save()
 
-        return HttpResponse(render(request, 'usuarios/perfil.html'))
+        return redirect("http://127.0.0.1:8000/perfil/")
     
-    else:
-        pass
+    else: 
+        return redirect("http://127.0.0.1:8000/perfil/EditarAnuncio/")
 
 
 def screenDeletar(request):
@@ -127,8 +135,31 @@ def screenConfirmacao(request):
         delete = anuncios_tbl.objects.get(id_anuncio=id)
         delete.delete()
 
-        return HttpResponse(render(request, 'usuarios/perfil.html'))
+        return redirect("http://127.0.0.1:8000/perfil/")
     
 
 def screenExConta(request):
-    return render(request, 'usuarios/anuncios/excluirConta/excluirConta.html')
+    if request.method == "GET":
+        return render(request, 'usuarios/excluirConta/excluirConta.html')
+    elif request.method == "POST":
+
+        senha = request.POST.get('password')
+        email = request.POST.get('email')
+
+        try:
+            usuario = cadastro_usuario.objects.get(email=email)
+            if usuario.senha == senha:
+                usuario.delete()
+                return redirect("http://127.0.0.1:8000/login/")
+            else:
+                return HttpResponse('Email ou senha incorretos.')
+        except cadastro_usuario.DoesNotExist:
+            return HttpResponse('Email ou senha invalidos')
+
+def screenHomeFree(request):
+
+    anuncios = {
+    'anuncios': anuncios_tbl.objects.all()
+    }
+      
+    return render(request, 'usuarios/home/homeFree.html', anuncios)
