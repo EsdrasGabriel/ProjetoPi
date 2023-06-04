@@ -1,17 +1,38 @@
-<div class="container">
-  <fieldset>
-    <legend>Excluir Conta</legend>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Excluir Conta</title>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <legend>Excluir Conta</legend>
 
-    <form action="{% url 'ExcluirConta' %}" method="POST">
-      {% csrf_token %}
+        <form action="{% url 'ExcluirConta' %}" method="POST">
+          {% csrf_token %}
 
-      <label for="email">Informe seu email:</label>
-      <input type="email" id="email" name="email" />
+          <label for="email">Informe seu email:</label>
+          <input type="email" id="email" name="email" />
 
-      <label for="password">Informe sua senha:</label>
-      <input type="password" id="password" name="password" />
+          <label for="password">Informe sua senha:</label>
+          <input type="password" id="password" name="password" />
 
-      <input type="submit" class="submit" value="Excluir" required />
-    </form>
-  </fieldset>
-</div>
+          <input type="submit" class="submit" value="Excluir" required />
+        </form>
+      </fieldset>
+    </div>
+
+    <script>
+      window.onload = function () {
+        if (localStorage.getItem("token")) {
+          return;
+        } else {
+          window.location.href = "{% url 'login' %}";
+        }
+      };
+    </script>
+  </body>
+</html>

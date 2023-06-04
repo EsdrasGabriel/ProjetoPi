@@ -1,39 +1,61 @@
-<div class="container">
-  <fieldset>
-    <legend>Editar Anúncio</legend>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Informações</title>
+</head>
+<body>
+  
+  <div class="container">
+    <fieldset>
+      <legend>Editar Anúncio</legend>
+  
+      <form action="{% url 'EditarInformacoes' %}" method="POST">
+        {% csrf_token %}
+        <input type="number" id="id" name="id" value="{{ id }}" hidden />
+  
+        <label for="titulo">titulo</label>
+        <input
+          type="name"
+          id="titulo"
+          name="titulo"
+          value="{{ titulo }}"
+          required
+        />
+  
+        <label for="descricao">Descrição</label>
+        <input
+          type="text"
+          id="descricao"
+          name="descricao"
+          value="{{ descricao }}"
+          required
+        />
+  
+        <label for="requisitos">Requisitos</label>
+        <input
+          type="text"
+          id="requisitos"
+          name="requisitos"
+          value="{{ requisitos }}"
+          required
+        />
+  
+        <input type="submit" class="submit" value="Editar" />
+      </form>
+    </fieldset>
+  </div>
+  <script>
+    window.onload = function () {
+      if (localStorage.getItem("token")) {
+        return;
+      } else {
+        window.location.href = "{% url 'login' %}";
+      }
+    };
+  </script>
 
-    <form action="{% url 'EditarInformacoes' %}" method="POST">
-      {% csrf_token %}
-      <input type="number" id="id" name="id" value="{{ id }}" hidden />
-
-      <label for="titulo">titulo</label>
-      <input
-        type="name"
-        id="titulo"
-        name="titulo"
-        value="{{ titulo }}"
-        required
-      />
-
-      <label for="descricao">Descrição</label>
-      <input
-        type="text"
-        id="descricao"
-        name="descricao"
-        value="{{ descricao }}"
-        required
-      />
-
-      <label for="requisitos">Requisitos</label>
-      <input
-        type="text"
-        id="requisitos"
-        name="requisitos"
-        value="{{ requisitos }}"
-        required
-      />
-
-      <input type="submit" class="submit" value="Editar" />
-    </form>
-  </fieldset>
-</div>
+</body>
+</html>

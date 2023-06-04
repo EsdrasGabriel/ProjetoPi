@@ -1,16 +1,37 @@
-<div class="container">
-  <fieldset>
-    <legend>Criar Anúncio</legend>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Criar Anúncio</title>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <legend>Criar Anúncio</legend>
 
-    <form action="{% url 'CriarAnuncio' %}" method="POST">
-      {% csrf_token %}
-      <label for="titulo">titulo</label>
-      <input type="name" id="titulo" name="titulo" required />
-      <label for="descricao">Descrição</label>
-      <input type="text" id="descricao" name="descricao" required />
-      <label for="requisitos">Requisitos</label>
-      <input type="text" id="requisitos" name="requisitos" required />
-      <input type="submit" class="submit" value="Criar" />
-    </form>
-  </fieldset>
-</div>
+        <form action="{% url 'CriarAnuncio' %}" method="POST">
+          {% csrf_token %}
+          <label for="titulo">titulo</label>
+          <input type="name" id="titulo" name="titulo" required />
+          <label for="descricao">Descrição</label>
+          <input type="text" id="descricao" name="descricao" required />
+          <label for="requisitos">Requisitos</label>
+          <input type="text" id="requisitos" name="requisitos" required />
+          <input type="submit" class="submit" value="Criar" />
+        </form>
+      </fieldset>
+    </div>
+
+    <script>
+      window.onload = function () {
+        if (localStorage.getItem("token")) {
+          return;
+        } else {
+          window.location.href = "{% url 'login' %}";
+        }
+      };
+    </script>
+  </body>
+</html>

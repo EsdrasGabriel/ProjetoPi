@@ -27,9 +27,7 @@ def screenLogin(request):
                         localStorage.setItem('token', '{token}');
                         window.location.href = '/home/';
                     </script>
-                """.format(
-                    token=token
-                )
+                """.format(token=token)
                 return HttpResponse(script)
             else:
                 return HttpResponse("Email ou Senha inválidos.")
@@ -92,8 +90,8 @@ def screenEditar(request):
 
 
 def screenEditarInfo(request):
-    if request.method == "GET":
-        id = request.GET.get("id")
+    id = request.GET.get("id")
+    if id is not None:
         info = anuncios_tbl.objects.get(id_anuncio=id)
         infoo = {
             "id": info.id_anuncio,
@@ -128,8 +126,8 @@ def screenDeletar(request):
 
 
 def screenConfirmacao(request):
-    if request.method == "GET":
-        id = request.GET.get("id")
+    id = request.GET.get("id")
+    if id is not None:
         info = anuncios_tbl.objects.get(id_anuncio=id)
         infoo = {
             "id": info.id_anuncio,
@@ -139,11 +137,14 @@ def screenConfirmacao(request):
         )
 
     elif request.method == "POST":
-        id = int(request.POST.get("id"))
+        id = request.POST.get("id")
         delete = anuncios_tbl.objects.get(id_anuncio=id)
         delete.delete()
 
         return redirect("http://127.0.0.1:8000/perfil/")
+    
+    else:
+        return render(request, "usuarios/anuncios/deletar/deletarAnuncio.html")
 
 
 def screenExConta(request):

@@ -1,13 +1,33 @@
-<div class="container">
-  <fieldset>
-    <legend>Informe o ID</legend>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editar Anúncio</title>
+  </head>
+  <body>
+    <div class="container">
+      <fieldset>
+        <legend>Informe o ID</legend>
 
-    <form action="{% url 'EditarInformacoes' %}" method="GET">
-      {% csrf_token %}
+        <form action="{% url 'EditarInformacoes' %}" method="GET">
+          {% csrf_token %}
 
-      <label for="id">Informe o ID</label>
-      <input type="number" id="id" name="id" />
-      <input type="submit" class="submit" value="Editar" required />
-    </form>
-  </fieldset>
-</div>
+          <label for="id">Informe o ID</label>
+          <input type="number" id="id" name="id" />
+          <input type="submit" class="submit" value="Editar" required />
+        </form>
+      </fieldset>
+    </div>
+    <script>
+      window.onload = function () {
+        if (localStorage.getItem("token")) {
+          return;
+        } else {
+          window.location.href = "{% url 'login' %}";
+        }
+      };
+    </script>
+  </body>
+</html>
