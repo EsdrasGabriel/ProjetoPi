@@ -35,8 +35,29 @@
             <a href="{% url 'EditarAnuncio' %}"><button type="button" class="anuncio" name="editar" id="editar">Editar Anuncio</button></a>
             <a href="{% url 'DeletarAnuncio' %}"><button type="button" class="anuncio" name="deletar" id="deletar">Deletar Anuncio</button></a>
             <a href="{% url 'ExcluirConta' %}"><button type="button" class="deletar-conta" name="excluirAcc" id="excluirAcc">Excluir Conta</button></a>
+            <a href="#"><button type="button" class="anuncio" name="logout" id="logout" onclick="logout()">LogOut</button></a>
         </div>
     </div>
+    
+    <script>
+        function logout(item) {
+            console.log(item)
+            localStorage.removeItem('token')
+            window.location.href = '../login/';
+        };
+    </script>
+    <script>
+        window.onload = function() {
+            if(localStorage.getItem('token')){
+                return
+            }
+            else{
+                window.location.href = "{% url 'login' %}"
+            }
+        };
+    </script>
+
+
 
 </body>
 </html>

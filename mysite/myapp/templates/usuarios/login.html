@@ -2,58 +2,79 @@
 
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/login/login.css' %}" />
 
     <title>Login</title>
-
-</head>
-<body>
-
+  </head>
+  <body>
     <nav>
-        <div class="container-nav">
-            <div class="container-logo">
-                <a href="" class="logo">AquiConfecções</a>
-            </div>
-            <div class="container-particao">
-                <ul class="particoes">
-                    <li class="conteudo"><a href="{% url 'HomeFree' %}">Anúncios</a></li>
-                </ul>
-            </div>
+      <div class="container-nav">
+        <div class="container-logo">
+          <a href="" class="logo">AquiConfecções</a>
         </div>
+        <div class="container-particao">
+          <ul class="particoes">
+            <li class="conteudo">
+              <a href="{% url 'HomeFree' %}">Anúncios</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <div class="container-login">
-        <form action="{% url 'login' %}" method="POST" class="formulario">
+      <form action="{% url 'login' %}" method="POST" class="formulario">
+        {% csrf_token %}
+        <div class="login">
+          <input
+            type="email"
+            class="campo"
+            name="email"
+            id="email"
+            placeholder="Digite seu e-mail"
+            required
+            autofocus
+          />
+          <input
+            type="password"
+            class="campo"
+            name="password"
+            id="password"
+            pattern=".{8,}"
+            placeholder="Digite sua senha"
+            required
+          />
+          <input type="submit" class="submit" value="Entrar" />
+        </div>
 
-            {% csrf_token %}
-            <div class="login">
-                <input type="email" class="campo" name="email" placeholder="Digite seu e-mail" required autofocus>
-                <input type="password" class="campo" name="password" pattern=".{8,}" placeholder="Digite sua senha" required>
-                <input type="submit" class="submit" value="Entrar">
-            </div>
+        <div class="cadastrar-se">
+          <p class="completo">
+            Ainda não possui conta?
+            <a href="{% url 'cadastro' %}">Clique aqui!</a>
+          </p>
+        </div>
 
-            <div class="cadastrar-se">
-                <p class="completo">Ainda não possui conta? <a href="{% url 'cadastro' %}">Clique aqui!</a></p>
-            </div>
+        <div class="divisor">
+          <hr />
+          <h1 class="divisor-desc">ou</h1>
+          <hr />
+        </div>
 
-            <div class="divisor">
-                <hr> 
-                <h1 class="divisor-desc">ou</h1> 
-                <hr>
-            </div>
-            
-            <div class="login-outros">
-                <button type="button">Entrar com Google</button>
-            </div>
-
-        </form>
+        <div class="login-outros">
+          <button type="button">Entrar com Google</button>
+        </div>
+      </form>
     </div>
-
-
-</body>
+    <script>
+      window.onload = function () {
+        if (localStorage.getItem("token")) {
+          window.location.href = "/home/";
+        }
+      };
+    </script>
+  </body>
 </html>

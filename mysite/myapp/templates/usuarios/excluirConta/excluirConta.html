@@ -1,24 +1,17 @@
 <div class="container">
+  <fieldset>
+    <legend>Excluir Conta</legend>
 
-    <fieldset>
-        <legend>
-            Excluir Conta
-        </legend>
+    <form action="{% url 'ExcluirConta' %}" method="POST">
+      {% csrf_token %}
 
-        <form action="{% url 'ExcluirConta' %}" method="POST">
+      <label for="email">Informe seu email:</label>
+      <input type="email" id="email" name="email" />
 
-            {% csrf_token %}
+      <label for="password">Informe sua senha:</label>
+      <input type="password" id="password" name="password" />
 
-            <label for="email">Informe seu email:</label>
-            <input type="email" id="email" name="email">
-
-            <label for="password">Informe sua senha:</label>
-            <input type="password" id="password" name="password">
-
-            <input type="submit" class="submit" value="Excluir" required>
-
-        </form>
-
-    </fieldset>
-
+      <input type="submit" class="submit" value="Excluir" required />
+    </form>
+  </fieldset>
 </div>

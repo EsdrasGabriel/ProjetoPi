@@ -2,48 +2,53 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}" />
     <title>Home</title>
-</head>
-<body>
-
+  </head>
+  <body>
     <nav>
-        <div class="container-nav">
-            <div class="container-logo">
-                <a href="" class="logo">AquiConfecções</a>
-            </div>
-            <div class="container-particao">
-                <ul class="particoes">
-                    <li class="conteudo"><a href="{% url 'perfil' %}">Perfil</a></li>
-                </ul>
-            </div>
+      <div class="container-nav">
+        <div class="container-logo">
+          <a href="" class="logo">AquiConfecções</a>
         </div>
+        <div class="container-particao">
+          <ul class="particoes">
+            <li class="conteudo"><a href="{% url 'perfil' %}">Perfil</a></li>
+          </ul>
+        </div>
+      </div>
     </nav>
 
     <div class="container-tabela">
-
-        <table>
-            <thead>
-                <th>ID</th>
-                <th>Titulo</th>
-                <th>Descrição</th>
-                <th>Requisitos</th>
-            </thead>
-            {% for anuncio in anuncios %}
-            <tbody>
-                <td>{{anuncio.id_anuncio}}</td>
-                <td>{{anuncio.titulo}}</td>
-                <td>{{anuncio.descricao}}</td>
-                <td>{{anuncio.requisitos}}</td>
-            </tbody>
-            {% endfor %}
-        </table>
-    
+      <table>
+        <thead>
+          <th>ID</th>
+          <th>Titulo</th>
+          <th>Descrição</th>
+          <th>Requisitos</th>
+        </thead>
+        {% for anuncio in anuncios %}
+        <tbody>
+          <td>{{anuncio.id_anuncio}}</td>
+          <td>{{anuncio.titulo}}</td>
+          <td>{{anuncio.descricao}}</td>
+          <td>{{anuncio.requisitos}}</td>
+        </tbody>
+        {% endfor %}
+      </table>
     </div>
-    
-</body>
+    <script>
+      window.onload = function () {
+        if (localStorage.getItem("token")) {
+          return;
+        } else {
+          window.location.href = "{% url 'login' %}";
+        }
+      };
+    </script>
+  </body>
 </html>

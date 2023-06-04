@@ -1,20 +1,13 @@
 <div class="container">
+  <fieldset>
+    <legend>Informe o ID</legend>
 
-    <fieldset>
-        <legend>
-            Informe o ID
-        </legend>
+    <form action="{% url 'EditarInformacoes' %}" method="GET">
+      {% csrf_token %}
 
-        <form action="{% url 'EditarInformacoes' %}" method="GET">
-
-            {% csrf_token %}
-
-            <label for="id">Informe o ID</label>
-            <input type="number" id="id" name="id">
-            <input type="submit" class="submit" value="Editar" required>
-
-        </form>
-
-    </fieldset>
-
+      <label for="id">Informe o ID</label>
+      <input type="number" id="id" name="id" />
+      <input type="submit" class="submit" value="Editar" required />
+    </form>
+  </fieldset>
 </div>
