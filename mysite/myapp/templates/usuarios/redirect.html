@@ -1,0 +1,9 @@
+<script>
+    window.onload = function () {
+      if (localStorage.getItem("token")) {
+        return;
+      } else {
+        window.location.href = "{% url 'login' %}";
+      }
+    };
+  </script>

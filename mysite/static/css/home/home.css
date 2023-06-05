@@ -86,9 +86,9 @@ nav .container-nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
 }
 
 td {
-    padding-left: 40px;
+    font-family: sans-serif;
+    font-weight: bold;
 }

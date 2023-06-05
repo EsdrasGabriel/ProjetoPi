@@ -7,6 +7,9 @@ import hashlib
 
 # Create your views here.
 
+def redirect(request):
+    return render(request, 'usuarios/redirect.html')
+
 def screenLogin(request):
     if request.method == "GET":
         return render(request, "usuarios/login.html")
@@ -63,6 +66,11 @@ def screenHome(request):
     anuncios = {"anuncios": anuncios_tbl.objects.all()}
 
     return render(request, "usuarios/home/home.html", anuncios)
+
+def screenHomeFree(request):
+    anuncios = {"anuncios": anuncios_tbl.objects.all()}
+
+    return render(request, "usuarios/home/homeFree.html", anuncios)
 
 
 def screenPerfil(request):
@@ -163,9 +171,3 @@ def screenExConta(request):
                 return HttpResponse("Email ou senha incorretos.")
         except cadastro_usuario.DoesNotExist:
             return HttpResponse("Email ou senha invalidos")
-
-
-def screenHomeFree(request):
-    anuncios = {"anuncios": anuncios_tbl.objects.all()}
-
-    return render(request, "usuarios/home/homeFree.html", anuncios)

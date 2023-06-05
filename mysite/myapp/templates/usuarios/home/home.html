@@ -24,19 +24,17 @@
     </nav>
 
     <div class="container-tabela">
-      <table>
-        <thead>
-          <th>ID</th>
-          <th>Titulo</th>
-          <th>Descrição</th>
-          <th>Requisitos</th>
+      <table class="tabela">
+        <thead class="tabela-head" hidden>
+          <th class="thead tituloh">Titulo</th>
+          <th class="thead descricaoh">Descrição</th>
+          <th class="thead requisitosh">Requisitos</th>
         </thead>
         {% for anuncio in anuncios %}
-        <tbody>
-          <td>{{anuncio.id_anuncio}}</td>
-          <td>{{anuncio.titulo}}</td>
-          <td>{{anuncio.descricao}}</td>
-          <td>{{anuncio.requisitos}}</td>
+        <tbody class="tabela-body">
+          <td class="anuncio titulob">{{anuncio.titulo}}</td>
+          <td class="anuncio descricaob">{{anuncio.descricao}}</td>
+          <td class="anuncio requisitosb">{{anuncio.requisitos}}</td>
         </tbody>
         {% endfor %}
       </table>

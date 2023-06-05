@@ -3,6 +3,7 @@ from django.contrib import admin
 from myapp import views
 
 urlpatterns = [
+    path('', views.redirect, name='redirect'),
     path('admin/', admin.site.urls),
     path('login/', views.screenLogin, name='login'),
     path('cadastro/', views.screenCadastro, name='cadastro'),
