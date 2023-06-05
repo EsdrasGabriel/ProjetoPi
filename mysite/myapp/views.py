@@ -171,3 +171,6 @@ def screenExConta(request):
                 return HttpResponse("Email ou senha incorretos.")
         except cadastro_usuario.DoesNotExist:
             return HttpResponse("Email ou senha invalidos")
+        
+def screenRedirect(request):
+    return render(request, 'usuarios/redirect.html')
