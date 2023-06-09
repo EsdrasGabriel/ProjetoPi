@@ -84,12 +84,101 @@ nav .container-nav {
     margin-top: 77px;
     position: fixed;
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    gap: 2rem;
+    overflow-y: scroll;
+}
+
+.search {
+    position: relative;
+    width: 17rem;
+    height: 35rem;
+}
+
+.search-two {
+    display: flex;
+    justify-content: center;
+    height: 30rem;
+    width: 20rem;
+    position: fixed;
+    background-color: var(--navbar-color);
+}
+
+.search-three {
+    font-family: sans-serif;
+    font-size: 40px;
+}
+
+.search-three h3 {
+    margin-top: 1rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    font-size: 40px;
+}
+
+.container-tabela .con-table {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-height: 90vh;
+}
+
+.div-table {
+    max-height: 90vh;
+    /* position: fixed; */
+
+}
+
+.tabela {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    width: 65vw;
+    border-top: 3px solid var(--navbar-color);
+}
+
+.link-anuncio:hover {
+    opacity: 1.1;
+}
+
+.tabela-body:hover {
+    transform: scale(1.05);
+}
+
+.link-anuncio {
+    text-decoration: none;
+}
+
+tr {
+    display: flex;
+    flex-direction: column;
+    color: var(--color-black);
+    padding-left: 80px;
 }
 
 td {
     font-family: sans-serif;
     font-weight: bold;
-    padding-left: 20px;
+    font-size: 22px;
+}
+
+.titulob {
+    font-size: 34px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.descricaob {
+    font-size: 24px;
+    padding-bottom: 10px;
+}
+
+.requisitosb {
+    font-size: 24px;
+    padding-bottom: 10px;
 }

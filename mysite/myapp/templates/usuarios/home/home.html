@@ -24,20 +24,37 @@
     </nav>
 
     <div class="container-tabela">
-      <table class="tabela">
-        <thead class="tabela-head" hidden>
-          <th class="thead tituloh">Titulo</th>
-          <th class="thead descricaoh">Descrição</th>
-          <th class="thead requisitosh">Requisitos</th>
-        </thead>
-        {% for anuncio in anuncios %}
-        <tbody class="tabela-body">
-          <td class="anuncio titulob">{{anuncio.titulo}}</td>
-          <td class="anuncio descricaob">{{anuncio.descricao}}</td>
-          <td class="anuncio requisitosb">{{anuncio.requisitos}}</td>
-        </tbody>
-        {% endfor %}
-      </table>
+      <div class="search">
+        <div class="search-two">
+          <div class="search-three">
+            <h3>Procurar</h3>
+            <form action="">
+              <label for="titulo">Titulo: </label>
+              <input type="text" class="input titulo" id="titulo">
+              <label for="descricao">Descrição: </label>
+              <input type="text" class="input descricao" id="descricao">
+              <label for="requisitos">Requisitos: </label>
+              <input type="text" class="input requisitos" id="requisitos">
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="con-table">
+        <div class="div-table">
+          {% for anuncio in anuncios %}
+          <a href="" class="link-anuncio">
+            <table class="tabela">
+              <tbody class="tabela-body">
+                <td class="anuncio idd" hidden>{{anuncio.id_anuncio}}</td>
+                <td class="anuncio titulob">{{anuncio.titulo}}</td>
+                <td class="anuncio descricaob">{{anuncio.descricao}}</td>
+                <td class="anuncio requisitosb">{{anuncio.requisitos}}</td>
+              </tbody>
+            </table>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
     </div>
     <script>
       window.onload = function () {
