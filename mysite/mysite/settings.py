@@ -76,7 +76,7 @@ DATABASES = {
         'NAME': 'projeto_pi',
         'USER': 'root',
         'PASSWORD': 'esdras1234ga',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'OPTIONS': {
         'charset': 'utf8mb4',
         'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",

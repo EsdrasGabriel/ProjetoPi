@@ -60,6 +60,7 @@ def screenCadastro(request):
             nome=nome, email=email, senha=senha, cpf=cpf, endereco=endereco
         )
         usuario.save()
+        return redirect ("http://127.0.0.1:8000/login/")
 
 
 def screenHome(request):
