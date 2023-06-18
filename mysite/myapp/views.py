@@ -5,8 +5,6 @@ from .models import anuncios_tbl
 import hashlib
 
 
-# Create your views here.
-
 def screenRedirect(request):
     return render(request, 'usuarios/redirect.html')
 

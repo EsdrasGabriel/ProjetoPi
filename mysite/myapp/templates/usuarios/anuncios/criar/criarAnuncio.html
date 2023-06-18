@@ -1,24 +1,68 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/perfil/criarAnuncio/criarAnuncio.css' %}"
+    />
     <title>Criar Anúncio</title>
   </head>
   <body>
+    <nav>
+      <div class="container-nav">
+        <div class="container-logo">
+          <a href="" class="logo">AquiConfecções</a>
+        </div>
+        <div class="container-particao">
+          <ul class="particoes">
+            <li class="conteudo">
+              <a href="{% url 'perfil' %}">Perfil</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <div class="container">
-      <fieldset>
+      <fieldset class="container-form">
         <legend>Criar Anúncio</legend>
 
-        <form action="{% url 'CriarAnuncio' %}" method="POST">
+        <form
+          action="{% url 'CriarAnuncio' %}"
+          method="POST"
+          class="formulario"
+        >
           {% csrf_token %}
-          <label for="titulo">titulo</label>
-          <input type="name" id="titulo" name="titulo" required />
-          <label for="descricao">Descrição</label>
-          <input type="text" id="descricao" name="descricao" required />
-          <label for="requisitos">Requisitos</label>
-          <input type="text" id="requisitos" name="requisitos" required />
+          <label for="titulo" class="descrip">titulo:</label>
+          <input
+            type="name"
+            id="titulo"
+            name="titulo"
+            style="height: 30px; width: 300px; font-size: 20px"
+            required
+          />
+
+          <label for="descricao" class="descrip">Descrição:</label>
+          <textarea
+            id="descricao"
+            name="descricao"
+            style="width: 500px; height: 250px;"
+            required
+          ></textarea>
+
+          <label for="requisitos" class="descrip">Requisitos:</label>
+          <textarea
+            type="text"
+            id="requisitos"
+            name="requisitos"
+            style="width: 500px; height: 250px"
+            required
+          ></textarea>
           <input type="submit" class="submit" value="Criar" />
         </form>
       </fieldset>
