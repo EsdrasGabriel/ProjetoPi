@@ -1,20 +1,38 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/perfil/deletarAnuncio/confirmacao/confirmacao.css' %}">
     <title>Confirmação</title>
   </head>
   <body>
+    <nav>
+      <div class="container-nav">
+        <div class="container-logo">
+          <a href="" class="logo">AquiConfecções</a>
+        </div>
+        <div class="container-particao">
+          <ul class="particoes">
+            <li class="conteudo">
+              <a href="{% url 'perfil' %}">Perfil</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <div class="container">
-      <fieldset>
+      <fieldset class="container-form">
         <legend>Deletar Anúncio</legend>
 
-        <form action="{% url 'Confirmacao' %}" method="POST">
+        <form action="{% url 'Confirmacao' %}" method="POST" class="formulario">
           {% csrf_token %}
 
-          <label for="id">Tem certeza que deseja excluir esse anúncio ?</label>
+          <label for="id" class="descrip">Tem certeza que deseja excluir esse anúncio ?</label>
           <input type="number" id="id" name="id" value="{{ id }}" hidden />
           <input type="submit" class="submit" value="SIM" required />
         </form>

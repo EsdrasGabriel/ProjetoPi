@@ -1,24 +1,59 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/perfil/excluirConta/excluirConta.css' %}"
+    />
     <title>Excluir Conta</title>
   </head>
   <body>
+    <nav>
+      <div class="container-nav">
+        <div class="container-logo">
+          <a href="" class="logo">AquiConfecções</a>
+        </div>
+        <div class="container-particao">
+          <ul class="particoes">
+            <li class="conteudo">
+              <a href="{% url 'perfil' %}">Perfil</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <div class="container">
-      <fieldset>
+      <fieldset class="container-form">
         <legend>Excluir Conta</legend>
 
-        <form action="{% url 'ExcluirConta' %}" method="POST">
+        <form
+          action="{% url 'ExcluirConta' %}"
+          method="POST"
+          class="formulario"
+        >
           {% csrf_token %}
 
-          <label for="email">Informe seu email:</label>
-          <input type="email" id="email" name="email" />
+          <label for="email" class="descrip">Informe seu email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            style="height: 30px; width: 300px; font-size: 20px"
+          />
 
-          <label for="password">Informe sua senha:</label>
-          <input type="password" id="password" name="password" />
+          <label for="password" class="descrip">Informe sua senha:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            style="height: 30px; width: 300px; font-size: 20px"
+          />
 
           <input type="submit" class="submit" value="Excluir" required />
         </form>

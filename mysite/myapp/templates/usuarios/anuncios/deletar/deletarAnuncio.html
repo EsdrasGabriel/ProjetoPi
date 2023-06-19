@@ -1,21 +1,47 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{% static 'css/perfil/deletarAnuncio/deletarAnucnio.css' %}"
+    />
     <title>Deletar Anúncio</title>
   </head>
   <body>
+    <nav>
+      <div class="container-nav">
+        <div class="container-logo">
+          <a href="" class="logo">AquiConfecções</a>
+        </div>
+        <div class="container-particao">
+          <ul class="particoes">
+            <li class="conteudo">
+              <a href="{% url 'perfil' %}">Perfil</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
     <div class="container">
-      <fieldset>
+      <fieldset class="container-form">
         <legend>Deletar Anúncio</legend>
 
-        <form action="{% url 'Confirmacao' %}" method="GET">
+        <form action="{% url 'Confirmacao' %}" method="GET" class="formulario">
           {% csrf_token %}
 
-          <label for="id">Informe o ID</label>
-          <input type="number" id="id" name="id" />
+          <label for="id" class="descrip">Informe o ID:</label>
+          <input
+            type="number"
+            id="id"
+            name="id"
+            style="height: 40px; width: 300px; font-size: 20px"
+          />
           <input type="submit" class="submit" value="Editar" required />
         </form>
       </fieldset>

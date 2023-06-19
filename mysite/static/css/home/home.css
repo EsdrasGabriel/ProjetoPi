@@ -77,7 +77,7 @@ nav .container-nav {
 }
 
 
-/* Tabela */
+/* pesquisa */
 .container-tabela {
     width: 100%;
     height: 91.5%;
@@ -92,7 +92,7 @@ nav .container-nav {
 
 .search {
     position: relative;
-    width: 17rem;
+    width: 19rem;
     height: 35rem;
 }
 
@@ -101,25 +101,60 @@ nav .container-nav {
     justify-content: center;
     height: 30rem;
     width: 20rem;
+    padding: 0 1rem;
     position: fixed;
-    background-color: var(--navbar-color);
+    border: 4px solid var(--navbar-color);
+    border-radius: 10px;
 }
 
 .search-three {
     font-family: sans-serif;
-    font-size: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .search-three h3 {
+    font-size: 40px;
     margin-top: 1rem;
+    color: var(--color-black);
 }
 
-form {
+.formulario {
     display: flex;
     flex-direction: column;
     font-size: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.formulario label {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    color: var(--color-black);
+}
+
+.formulario input {
+    border-radius: 10px;
+    border: 2px solid var(--navbar-color);
+    margin-bottom: 1rem;
+}
+
+.formulario .submit {
+    background-color: var(--navbar-color);
+    color: var(--color-black);
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+/* tabela */
 .container-tabela .con-table {
     display: flex;
     flex-direction: column;
