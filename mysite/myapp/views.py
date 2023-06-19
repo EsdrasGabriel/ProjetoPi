@@ -63,8 +63,23 @@ def screenCadastro(request):
 
 def screenHome(request):
     anuncios = {"anuncios": anuncios_tbl.objects.all()}
-
     return render(request, "usuarios/home/home.html", anuncios)
+
+def screenSearchHome(request):
+    titulo = request.GET.get("titulo")
+
+    if titulo is not None :
+        try:
+            pesquisa = anuncios_tbl.objects.get(titulo=titulo)
+            pesquisas = {
+                "titulo": pesquisa.titulo,
+                "descricao": pesquisa.descricao,
+                "requisitos": pesquisa.requisitos,
+            }
+
+            return render(request, 'usuarios/home/search.html', pesquisas)
+        except anuncios_tbl.DoesNotExist:
+            return HttpResponse("nada foi encontrado")
 
 def screenHomeFree(request):
     anuncios = {"anuncios": anuncios_tbl.objects.all()}
@@ -101,7 +116,6 @@ def screenEditarInfo(request):
     if id is not None:
         info = anuncios_tbl.objects.get(id_anuncio=id)
         infoo = {
-            "id": info.id_anuncio,
             "titulo": info.titulo,
             "descricao": info.descricao,
             "requisitos": info.requisitos,

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{% static 'css/home/home.css' %}" />
-    <title>Home</title>
+    <title>Search</title>
   </head>
   <body>
     <nav>
@@ -28,8 +28,10 @@
         <div class="search-two">
           <div class="search-three">
             <h3>Procurar</h3>
+
             <form action="{% url 'search' %}" method="GET" class="formulario">
               {% csrf_token %}
+
               <label for="titulo">Titulo: </label>
               <input
                 type="text"
@@ -41,38 +43,23 @@
 
               <input type="submit" class="submit" value="Consultar" />
             </form>
+
           </div>
         </div>
       </div>
 
       <div class="con-table">
         <div class="div-table">
-          {% for anuncio in anuncios %}
 
           <a href="" class="link-anuncio">
             <table class="tabela">
               <tbody class="tabela-body">
-                <td class="anuncio titulob">{{anuncio.titulo}}</td>
-                <td class="anuncio descricaob">{{anuncio.descricao}}</td>
-                <td class="anuncio requisitosb">{{anuncio.requisitos}}</td>
+                <td class="anuncio titulob">{{ titulo }}</td>
+                <td class="anuncio descricaob">{{ descricao }}</td>
+                <td class="anuncio requisitosb">{{ requisitos }}</td>
               </tbody>
             </table>
           </a>
-          {% endfor %}
-        </div>
-        <div class="div-table">
-          {% for pesquisas in pesquisa %}
-
-          <a href="" class="link-anuncio">
-            <table class="tabela">
-              <tbody class="tabela-body">
-                <td class="anuncio titulob">{{pesquisas.titulo}}</td>
-                <td class="anuncio descricaob">{{pesquisas.descricao}}</td>
-                <td class="anuncio requisitosb">{{pesquisas.requisitos}}</td>
-              </tbody>
-            </table>
-          </a>
-          {% endfor %}
         </div>
       </div>
     </div>
