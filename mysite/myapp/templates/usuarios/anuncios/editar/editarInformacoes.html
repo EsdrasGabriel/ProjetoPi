@@ -35,6 +35,8 @@
         <form action="{% url 'EditarInformacoes' %}" method="POST" class="formulario">
           {% csrf_token %}
 
+          <input type="number" id="id" name="id" value="{{ id }}" hidden>
+
           <label for="titulo" class="descrip">titulo:</label>
           <input
             type="name"

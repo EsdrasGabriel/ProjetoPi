@@ -113,27 +113,31 @@ def screenEditar(request):
 
 def screenEditarInfo(request):
     id = request.GET.get("id")
-    if id is not None:
-        info = anuncios_tbl.objects.get(id_anuncio=id)
-        infoo = {
-            "titulo": info.titulo,
-            "descricao": info.descricao,
-            "requisitos": info.requisitos,
-        }
-        return HttpResponse(
-            render(request, "usuarios/anuncios/editar/editarInformacoes.html", infoo)
-        )
+    try:
+        if id is not None:
+            info = anuncios_tbl.objects.get(id_anuncio=id)
+            infoo = {
+                "id": info.id_anuncio,
+                "titulo": info.titulo,
+                "descricao": info.descricao,
+                "requisitos": info.requisitos,
+            }
+            return HttpResponse(
+                render(request, "usuarios/anuncios/editar/editarInformacoes.html", infoo)
+            )
+    except anuncios_tbl.DoesNotExist:
+        return HttpResponse("nada foi encontrado")
 
-    elif request.method == "POST":
+    if request.method == "POST":
+        id = request.POST.get("id")
         titulo = request.POST.get("titulo")
         descricao = request.POST.get("descricao")
         requisitos = request.POST.get("requisitos")
-        id = int(request.POST.get("id"))
 
         infooo = anuncios_tbl.objects.filter(id_anuncio=id).first()
         infooo.titulo = titulo
         infooo.descricao = descricao
-        infooo.requisitos = requisitos
+        infooo.requisitos = requisitos 
         infooo.save()
 
         return redirect("http://127.0.0.1:8000/perfil/")
